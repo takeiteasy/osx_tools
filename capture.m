@@ -11,7 +11,7 @@
 #include <time.h>
 
 @interface capture_del_t : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate>
-@property (weak) AVCaptureSession* session;
+@property AVCaptureSession* session;
 -(void)  captureOutput:(AVCaptureOutput*)output
  didOutputSampleBuffer:(CMSampleBufferRef)buffer
         fromConnection:(AVCaptureConnection*)connection;
