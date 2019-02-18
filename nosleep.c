@@ -8,6 +8,7 @@ int main(int argc, const char* argv[]) {
 
 	if (IOPMAssertionCreateWithName(kIOPMAssertionTypeNoDisplaySleep, kIOPMAssertionLevelOn, reasonForActivity, &assertionID) != kIOReturnSuccess) {
 		fprintf(stderr, "ERROR! Failed to prevent sleep");
+    return 1;
 	}
 
 	printf("Sleep prevented! Press any key to stop...\n");
