@@ -1,10 +1,11 @@
 //
-//  main.m
+//  nosleep.m
 //  nosleep
 //
 //  Created by Rory B. Bellows on 09/02/2019.
 //  Copyright © 2019 Rory B. Bellows. All rights reserved.
 //
+// clang nosleep.m -framework IOKit -framework Foundation -framework Cocoa
 
 #import <Cocoa/Cocoa.h>
 #import <Availability.h>

@@ -5,6 +5,7 @@
 //  Created by Rory B. Bellows on 16/02/2019.
 //  Copyright © 2019 Rory B. Bellows. All rights reserved.
 //
+// clang powerd.c -framework IOKit -framework Foundation
 
 #include <stdio.h>
 #include <errno.h>
@@ -23,7 +24,6 @@
 #include <IOKit/hidsystem/IOHIDParameter.h>
 #include <IOKit/hidsystem/IOHIDShared.h>
 #include <IOKit/hid/IOHIDManager.h>
-#include <IOKit/usb/IOUSBLib.h>
 #include <IOKit/pwr_mgt/IOPMLib.h>
 #include <IOKit/ps/IOPowerSources.h>
 #include <IOKit/ps/IOPSKeys.h>

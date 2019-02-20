@@ -5,6 +5,7 @@
 //  Created by Rory B. Bellows on 23/12/2017.
 //  Copyright © 2017 Rory B. Bellows. All rights reserved.
 //
+// clang capture.m -framework AppKit -framework AVFoundation -framework AVKit -framework CoreVideo -framework CoreMedia -framework CoreImage
 
 #import <AVFoundation/AVFoundation.h>
 #import <AppKit/AppKit.h>

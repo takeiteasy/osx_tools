@@ -1,3 +1,12 @@
+//
+//  nosleep.c
+//  nosleep
+//
+//  Created by Rory B. Bellows on 09/02/2019.
+//  Copyright © 2019 Rory B. Bellows. All rights reserved.
+//
+// clang nosleep.c -framework IOKit -framework Foundation
+
 #include <stdio.h>
 #include <termios.h>
 #include <IOKit/pwr_mgt/IOPMLib.h>
