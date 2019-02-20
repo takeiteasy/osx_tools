@@ -8,8 +8,10 @@ nosleep.c | Prevent sleep in terminal until key press
 nosleep.m | Prevent sleep menu bar app
 audit.c | WIP
 lookup.c | WIP
-powerd.c | Run command after system event
+powerd.c | System event monitor daemon
 capture.m | Take picture with camera
+kbd.m | Keyboard shortcut daemon WIP
+usbd.c | USB monitor daemon WIP
 
 ## License
 
