@@ -5,7 +5,7 @@ Collection of tools and stuff for OSX.
 File | Function
 --- | ---
 nosleep.c | Prevent sleep in terminal until key press
-nosleep.m | Prevent sleep menu bar app
+nosleep.m | Prevent sleep menu bar app WIP
 audit.c | WIP
 lookup.c | WIP
 powerd.c | System event monitor daemon
