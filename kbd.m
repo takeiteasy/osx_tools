@@ -1,5 +1,5 @@
 //
-//  main.m
+//  kbd.m
 //  kbd
 //
 //  Created by Rory B. Bellows on 20/02/2019.
@@ -19,13 +19,13 @@ static CFMachPortRef event_tap = nil;
 static CFRunLoopSourceRef loop = nil;
 
 #define MOD_CHECK \
-  X(kCGEventFlagMaskAlphaShift, @"CAPS") \
-  X(kCGEventFlagMaskShift, @"SHIFT") \
-  X(kCGEventFlagMaskControl, @"CTRL") \
-  X(kCGEventFlagMaskAlternate, @"ALT") \
-  X(kCGEventFlagMaskCommand, @"CMD")
+  X(kCGEventFlagMaskAlphaShift, @"CAPS+") \
+  X(kCGEventFlagMaskShift, @"SHIFT+") \
+  X(kCGEventFlagMaskControl, @"CTRL+") \
+  X(kCGEventFlagMaskAlternate, @"ALT+") \
+  X(kCGEventFlagMaskCommand, @"CMD+")
 
-NSString* event_key_str(CGEventRef event, CGEventType type) {
+NSMutableString* event_key_str(CGEventRef event, CGEventType type) {
   CGEventFlags flags = CGEventGetFlags(event);
   NSMutableString* mod_str = [NSMutableString string];
   
@@ -34,6 +34,9 @@ NSString* event_key_str(CGEventRef event, CGEventType type) {
     [mod_str appendString:y];
   MOD_CHECK
 #undef X
+  
+  if (mod_str && [mod_str length])
+    [mod_str replaceCharactersInRange:NSMakeRange([mod_str length] - 1, 1) withString:@" "];
   
   CGKeyCode keyCode = (CGKeyCode)CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
   
@@ -54,25 +57,30 @@ NSString* event_key_str(CGEventRef event, CGEventType type) {
   if (status != noErr || !actualStringLength)
     return nil;
   
-  NSString* key_str = [[NSString stringWithCharacters:unicodeString length:(NSUInteger)actualStringLength] lowercaseString];
-  
-  return key_str;
+  [mod_str appendString:[[NSString stringWithCharacters:unicodeString length:(NSUInteger)actualStringLength] uppercaseString]];
+  return mod_str;
 }
 
 CGEventRef event_cb(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void* ref) {
   bool down = true;
+  NSMutableString* ret = nil;
   switch (type) {
     case kCGEventKeyUp:
       down = false;
     case kCGEventKeyDown:
-      event_key_str(event, type);
-      return event;
+      ret = event_key_str(event, type);
+      if (!ret)
+        break;
+      [ret appendFormat:@" %@", down ? @"DOWN" : @"UP"];
+      // DO SOMETHING
+      break;
     case kCGEventTapDisabledByUserInput:
     case kCGEventTapDisabledByTimeout:
       CGEventTapEnable(event_tap, true);
     default:
-      return event;
+      break;
   }
+  return event;
 }
 
 CFMachPortRef create_tap() {
@@ -100,7 +108,7 @@ void _signal(int sig) {
   }
 }
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char* argv[]) {
   if (geteuid()) {
     NSLog(@"ERROR: Run as root");
     return EXIT_FAILURE;
