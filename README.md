@@ -13,7 +13,7 @@ capture.m | Take picture with camera
 kbd.m | Keyboard shortcut daemon WIP
 usbd.c | USB monitor daemon WIP
 fd.m | Open file/directory and save dialog
-msg.m | Warning message dialog
+alert.m | Alert dialog
 
 ## License
 

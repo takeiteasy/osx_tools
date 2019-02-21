@@ -1,11 +1,11 @@
 //
-//  msg.m
-//  msg
+//  alert.m
+//  alert
 //
 //  Created by Rory B. Bellows on 20/02/2019.
 //  Copyright © 2019 Rory B. Bellows. All rights reserved.
 //
-// clang msg.m -framework AppKit
+// clang alert.m -framework AppKit
 
 
 #include <AppKit/AppKit.h>
