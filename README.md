@@ -15,6 +15,23 @@ usbd.c | USB monitor daemon WIP
 fd.m | Open file/directory and save dialog
 alert.m | Alert dialog
 
+### Other tools & stuff
+
+Link | About
+--- | ---
+[sstephenson/pseudo](https://github.com/sstephenson/pseudo) | sudo w/ OSX secuirty dialog
+[meliot/filewatcher](https://github.com/meliot/filewatcher) | audit file events
+[sveinbjornt/searchfs](https://github.com/sveinbjornt/searchfs) | driver level file search
+[julienXX/terminal-notifier](https://github.com/julienXX/terminal-notifier) & [vjeantet/alerter](https://github.com/vjeantet/alerter) | push notifications from cli
+[sveinbjornt/Platypus](https://github.com/sveinbjornt/Platypus) | gui for cli stuff
+[gdbinit/gimmedebugah](https://github.com/gdbinit/gimmedebugah) | inject info.plist
+[steakknife/unsign](https://github.com/steakknife/unsign) | unsigned executables
+[matryer/bitbar](https://github.com/matryer/bitbar) & [tonsky/AnyBar](https://github.com/tonsky/AnyBar) | menu bar for cli
+[kevinSuttle/macOS-Defaults](https://github.com/kevinSuttle/macOS-Defaults) | example default settings for osx
+[drduh/macOS-Security-and-Privacy-Guide](https://github.com/drduh/macOS-Security-and-Privacy-Guide) | privacy guide for osx
+[guarinogabriel/Mac-CLI](https://github.com/guarinogabriel/Mac-CLI) | a tool for a bunch of shortcuts
+
+
 ## License
 
 ```Copyright (c) 2013, George Watson
