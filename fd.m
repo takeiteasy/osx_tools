@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     BOOL allowed_multiple = NO;
     char *pattern = NULL, *path = NULL, *filename = NULL;
     extern char* optarg;
-    extern int optind, optopt, opterr;
+    extern int optopt;
     DIALOG_ACTION action = DIALOG_NOT_SET;
     
     while ((opt = getopt(argc, argv, ":odsmf:p:n:")) != -1) {
