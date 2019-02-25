@@ -14,6 +14,7 @@ kbd.m | Keyboard shortcut daemon WIP
 usbd.c | USB monitor daemon WIP
 fd.m | Open file/directory and save dialog
 alert.m | Alert dialog
+clock.m | A big clock
 
 ### Other tools & stuff
 
