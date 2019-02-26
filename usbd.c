@@ -1,10 +1,11 @@
 //
-//  main.c
+//  usbd.c
 //  usbd
 //
 //  Created by Rory B. Bellows on 19/02/2019.
 //  Copyright © 2019 Rory B. Bellows. All rights reserved.
 //
+// clang usbd.c -framework IOKit -framework Foundation
 
 #include <stdio.h>
 #include <IOKit/hid/IOHIDManager.h>

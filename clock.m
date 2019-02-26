@@ -1,10 +1,11 @@
 //
-//  main.m
+//  clock.m
 //  clock
 //
 //  Created by Rory B. Bellows on 25/02/2019.
 //  Copyright © 2019 Rory B. Bellows. All rights reserved.
 //
+// clang clock.m -framework Cocoa
 
 #import <Cocoa/Cocoa.h>
 
