@@ -26,8 +26,13 @@ static NSString* str = nil;
 }
 
 - (void)drawRect:(NSRect)frame {
-  NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:6.0 yRadius:6.0];
-  [[NSColor colorWithRed:0 green:0 blue:0 alpha:a] set];
+  NSBezierPath* path = [NSBezierPath bezierPathWithRoundedRect:frame
+                                                       xRadius:6.0
+                                                       yRadius:6.0];
+  [[NSColor colorWithRed:0
+                   green:0
+                    blue:0
+                   alpha:a] set];
   [path fill];
 }
 
