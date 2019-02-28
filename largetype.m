@@ -10,13 +10,14 @@
 #import <Cocoa/Cocoa.h>
 
 static NSString* str = nil;
+static BOOL start_fade = NO;
+static double opacity = 1.;
 
 #define PADDING 10
-#define TIMEOUT 4.
+#define TIMEOUT 1.5
+#define FADE_BY 50.
 
-@interface AppView : NSView {
-  double a;
-}
+@interface AppView : NSView {}
 @end
 
 @implementation AppView
@@ -32,12 +33,8 @@ static NSString* str = nil;
   [[NSColor colorWithRed:0
                    green:0
                     blue:0
-                   alpha:a] set];
+                   alpha:opacity - .25] set];
   [path fill];
-}
-
-- (void)setAlpha:(double)_a {
-  a = _a;
 }
 @end
 
@@ -108,13 +105,17 @@ static NSString* str = nil;
 }
 
 - (void)update {
-  NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate:start];
-  if (elapsed >= TIMEOUT)
-    [NSApp terminate:nil];
-  double a = 1. - (elapsed / TIMEOUT);
-  [view setAlpha:a];
-  [label setTextColor:[[NSColor whiteColor] colorWithAlphaComponent:a]];
-  [view setNeedsDisplay:YES];
+  if (!start_fade) {
+    NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate:start];
+    if (elapsed >= TIMEOUT)
+      start_fade = YES;
+  } else {
+    if (opacity <= 0.)
+      [NSApp terminate:nil];
+    opacity -= ([[NSDate date] timeIntervalSinceDate:[timer fireDate]] * FADE_BY);
+    [label setTextColor:[[NSColor whiteColor] colorWithAlphaComponent:opacity]];
+    [view setNeedsDisplay:YES];
+  }
 }
 @end
 
